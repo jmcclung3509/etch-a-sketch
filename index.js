@@ -22,7 +22,6 @@ function newGrid(gridNumber){
       innerContainer.appendChild(div)
   }
   const boxes = document.querySelectorAll(".box")
-
   boxes.forEach(box=>box.addEventListener("mouseover", hover))
   }
   
@@ -31,11 +30,7 @@ function newGrid(gridNumber){
 // boxes.forEach(box=>box.addEventListener("mouseover", hover))
 
 function hover(e){
-    console.log(this)
- this.classList.add("hoverEffect")
-    // bgColor = randomColor()
-    // console.log(bgColor)
-    // e.target.style.backgroundColor = `${bgColor}`
+this.classList.add("hoverEffect")
     let opacity = parseFloat(this.style.opacity)
     e.target.style.opacity = `${opacity + 0.1}`
     console.log(this.style.opacity)
@@ -59,12 +54,45 @@ button.addEventListener("click", function (){
    newGrid(gridNumber)
 })
 
+// const greyBtn = document.createElement("button")
+// greyBtn.classList.add("btn")
+// greyBtn.textContent = "Grey Scale"
+// btn_container.appendChild(greyBtn)
+// greyBtn.addEventListener("click", greyHover)
+
+// function greyHover(){
+//     const boxes = document.querySelectorAll(".box")
+//     boxes.forEach(box=>box.addEventListener("mouseover", hoverInGrey))
+// }
+// function hoverInGrey(e){
+//   e.target.style.backgroundColor = "grey"
+//     let opacity = parseFloat(this.style.opacity)
+//     e.target.style.opacity = `${opacity + 0.1}`
+
+// }
+const randomColorBtn= document.createElement("button")
+randomColorBtn.classList.add("btn")
+randomColorBtn.textContent="Random Color Hover"
+btn_container.appendChild(randomColorBtn)
+
+randomColorBtn.addEventListener("click", colorSquares)
+function colorSquares(){
+    const boxes = document.querySelectorAll(".box")
+    boxes.forEach(box=>box.addEventListener("mouseover", colorHover))
+}
+
+function colorHover(e){
+   bgColor = randomColor()
+    console.log(bgColor)
+    e.target.style.backgroundColor = `${bgColor}`
+}
 
 function removePrevGrid(parent){
     while(parent.firstChild){
         parent.removeChild(parent.firstChild)
     }
 }
+
 function randomColor(){
     let x = Math.floor(Math.random() * 256)
     let y = Math.floor(Math.random() * 256)
