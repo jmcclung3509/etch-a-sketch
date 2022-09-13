@@ -41,17 +41,21 @@ this.classList.add("hoverEffect")
 
 const btn_container = document.createElement("div")
 btn_container.classList.add("btn_container")
-container.prepend(btn_container)
+container.append(btn_container)
 
 const button = document.createElement("button")
 button.classList.add("btn")
-button.textContent = "Create a new grid"
+button.textContent = "New grid"
 btn_container.appendChild(button)
 
 button.addEventListener("click", function (){
    gridNumber =  prompt ( "What size grid would you like next (max= 100)?")
+   if (gridNumber !== ""){
     gridNumber = Number(gridNumber)
    newGrid(gridNumber)
+   } else {
+       newGrid(16)
+   }
 })
 
 // const greyBtn = document.createElement("button")
@@ -72,7 +76,7 @@ button.addEventListener("click", function (){
 // }
 const randomColorBtn= document.createElement("button")
 randomColorBtn.classList.add("btn")
-randomColorBtn.textContent="Random Color Hover"
+randomColorBtn.textContent="Random Color"
 btn_container.appendChild(randomColorBtn)
 
 randomColorBtn.addEventListener("click", colorSquares)
