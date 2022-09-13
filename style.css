@@ -1,18 +1,18 @@
-
 body {
-
     height: 100vh;
     display: flex;
     justify-content: center;
 
 }
-.container{
+
+.container {
     margin: 0;
     width: 100%;
-    max-width: 680px;
-    padding: 50px 200px 0;;
+    max-width: 550px;
+    padding: 20px 20px 100px;
+    border: 2px solid black;
     background-color: rgb(217, 4, 4);
-  
+
 }
 
 h1 {
@@ -29,31 +29,104 @@ h1 {
     background-color: white;
     margin: auto;
     width: 100%;
+    height: 80%;
     display: flex;
     justify-content: center;
     flex-flow: row wrap;
 }
+
 .box {
     box-sizing: border-box;
-    aspect-ratio: 1;
+
     /* border: 1px solid blue; */
 }
-.hoverEffect {
-    background-color:rgb(105,105,105)
 
+.hoverEffect {
+    background-color: rgb(105, 105, 105)
 }
+
 .btn_container {
     display: flex;
     justify-content: space-between;
-    width: 100%;
+    width: 90%;
     margin: 50px auto;
-  
+
 }
+
 .btn {
-width: 100px;
-height: 100px;
-background-color: white;
-border: 2px dotted black;
-border-radius: 50%;
+    width: 80px;
+    height: 80px;
+    background-color: white;
+    border: 2px dotted black;
+    border-radius: 50%;
+}
+
+
+
+@media only screen and (min-width: 680px) {
+
+    .container {
+        margin: 0;
+        width: 100%;
+        max-width: 600px;
+        padding: 20px 100px 200px;
+        background-color: rgb(217, 4, 4);
+
+    }
+
+    .innerContainer {
+        border: 2px solid black;
+        background-color: white;
+        margin: auto;
+        width: 100%;
+        height: 80%;
+        display: flex;
+        justify-content: center;
+        flex-flow: row wrap;
+    }
+
+    .btn {
+        width: 100px;
+        height: 100px;
+        background-color: white;
+        border: 2px dotted black;
+        border-radius: 50%;
+    }
+
+
+
+}
+
+@media only screen and (min-width: 780px) {
+
+    .container {
+        margin: 0;
+        width: 100%;
+        max-width: 750px;
+        padding: 20px 100px 250px;
+        background-color: rgb(217, 4, 4);
+
+    }
+
+    .innerContainer {
+        border: 2px solid black;
+        background-color: white;
+        margin: auto;
+        width: 100%;
+        /* height: 80%; */
+        display: flex;
+        justify-content: center;
+        flex-flow: row wrap;
+    }
+
+    .btn {
+        width: 100px;
+        height: 100px;
+        background-color: white;
+        border: 2px dotted black;
+        border-radius: 50%;
+    }
+
+
 
 }
