@@ -42,7 +42,7 @@ h1 {
 }
 
 .hoverEffect {
-    background-color: rgb(105, 105, 105)
+    background-color: rgb(20, 20, 20)
 }
 
 .btn_container {
@@ -61,7 +61,14 @@ h1 {
     border-radius: 50%;
 }
 
+.btn:hover {
+    background-color: lightslategray;
+    border: 3px dotted black;
+}
 
+.btn:active {
+    background-color: lightslategray;
+}
 
 @media only screen and (min-width: 680px) {
 

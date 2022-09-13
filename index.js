@@ -28,18 +28,15 @@ function newGrid(gridNumber) {
     boxes.forEach(box => box.addEventListener("mouseover", hover))
 }
 
-//   const boxes = document.querySelectorAll(".box")
 
-// boxes.forEach(box=>box.addEventListener("mouseover", hover))
 
 function hover(e) {
+
     this.classList.add("hoverEffect")
     let opacity = parseFloat(this.style.opacity)
     e.target.style.opacity = `${opacity + 0.1} `
     console.log(this.style.opacity)
-
 }
-
 
 
 const btn_container = document.createElement("div")
@@ -61,34 +58,40 @@ button.addEventListener("click", function () {
     }
 })
 
-// const greyBtn = document.createElement("button")
-// greyBtn.classList.add("btn")
-// greyBtn.textContent = "Grey Scale"
-// btn_container.appendChild(greyBtn)
-// greyBtn.addEventListener("click", greyHover)
+const greyBtn = document.createElement("button")
+greyBtn.classList.add("btn")
+greyBtn.textContent = "Grey Scale"
+btn_container.appendChild(greyBtn)
+greyBtn.addEventListener("click", greyHover)
 
-// function greyHover(){
-//     const boxes = document.querySelectorAll(".box")
-//     boxes.forEach(box=>box.addEventListener("mouseover", hoverInGrey))
-// }
-// function hoverInGrey(e){
-//   e.target.style.backgroundColor = "grey"
-//     let opacity = parseFloat(this.style.opacity)
-//     e.target.style.opacity = `${ opacity + 0.1 } `
+function greyHover() {
 
-// }
+    const boxes2 = document.querySelectorAll(".box")
+    boxes2.forEach(box => box.addEventListener("mouseover", hoverInGrey))
+}
+function hoverInGrey(e) {
+    e.target.removeAttribute('backgroundColor')
+    e.target.style.backgroundColor = "rgb(20, 20, 20)"
+    console.log(e.target.style.backgroundColor)
+    let opacity = parseFloat(this.style.opacity)
+    e.target.style.opacity = `${opacity + 0.1} `
+
+}
 const randomColorBtn = document.createElement("button")
 randomColorBtn.classList.add("btn")
 randomColorBtn.textContent = "Random Color"
 btn_container.appendChild(randomColorBtn)
 
 randomColorBtn.addEventListener("click", colorSquares)
+
 function colorSquares() {
+
     const boxes = document.querySelectorAll(".box")
     boxes.forEach(box => box.addEventListener("mouseover", colorHover))
 }
 
 function colorHover(e) {
+    e.target.removeAttribute('backgroundColor')
     bgColor = randomColor()
     console.log(bgColor)
     e.target.style.backgroundColor = `${bgColor} `
@@ -106,4 +109,9 @@ function randomColor() {
     let z = Math.floor(Math.random() * 256)
     let bgColor = `rgb(${x}, ${y}, ${z})`
     return bgColor
+}
+function removeStyles(e) {
+    e.target.removeAttribute('style')
+
+
 }
