@@ -18,10 +18,27 @@ body {
 h1 {
     color: white;
     text-align: center;
-    padding: 20px 0;
-    margin: 0;
+    padding: 0;
+    margin: 40px auto 0;;
     font-family: 'Allura', cursive;
     font-size: 3rem;
+}
+.btn_container_top {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-top:60px;
+
+}
+.new-grid-btn{
+    padding: 7px 10px;
+    border-radius: 8px;
+    background-color: transparent;
+    border: none;
+    color: white;
+    margin-top: -40px;
+    font-size: 1.2rem;
+    font-family: 'Work Sans', sans-serif;
 }
 
 .innerContainer {
@@ -49,8 +66,7 @@ h1 {
     display: flex;
     justify-content: space-between;
     width: 90%;
-    margin: 50px auto;
-
+    margin: 20px auto;
 }
 
 .btn {
@@ -59,6 +75,7 @@ h1 {
     background-color: white;
     border: 2px dotted black;
     border-radius: 50%;
+    font-family: 'Work Sans', sans-serif;
 }
 
 .btn:hover {
@@ -132,6 +149,7 @@ h1 {
         background-color: white;
         border: 2px dotted black;
         border-radius: 50%;
+        
     }
 
 

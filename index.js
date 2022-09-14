@@ -1,4 +1,5 @@
 const container = document.querySelector(".container")
+const title = document.querySelector(".title")
 let gridNumber = 16
 
 //create inner Container to hold boxes 
@@ -30,22 +31,21 @@ function newGrid(gridNumber) {
 
 //initial grey hover
 function hover(e) {
-
     this.classList.add("hoverEffect")
     let opacity = parseFloat(this.style.opacity)
     e.target.style.opacity = `${opacity + 0.1} `
     console.log(this.style.opacity)
 }
+//create new grid button
+const btn_container_top = document.createElement("div")
+btn_container_top.classList.add("btn_container_top")
+container.append(btn_container_top)
 
-// create button for new grid
-const btn_container = document.createElement("div")
-btn_container.classList.add("btn_container")
-container.append(btn_container)
 
 const button = document.createElement("button")
-button.classList.add("btn")
+button.classList.add("new-grid-btn")
 button.textContent = "New grid"
-btn_container.appendChild(button)
+btn_container_top.append(button)
 
 button.addEventListener("click", function () {
     gridNumber = prompt("What size grid would you like next (max= 100)?")
@@ -57,6 +57,14 @@ button.addEventListener("click", function () {
     }
 })
 
+
+
+
+//create button container for hover buttons
+const btn_container = document.createElement("div")
+btn_container.classList.add("btn_container")
+container.append(btn_container)
+
 //create button for grey scale hover
 const greyBtn = document.createElement("button")
 greyBtn.classList.add("btn")
@@ -65,12 +73,13 @@ btn_container.appendChild(greyBtn)
 greyBtn.addEventListener("click", greyHover)
 
 function greyHover() {
-    const boxes2 = document.querySelectorAll(".box")
-    boxes2.forEach(box => box.addEventListener("mouseover", hoverInGrey))
+    const boxes = document.querySelectorAll(".box")
+    boxes.forEach(box=> box.removeEventListener("mouseover", colorHover))
+    boxes.forEach(box => box.addEventListener("mouseover", hoverInGrey))
 }
 //GREY SCALE HOVER FUNCTION
 function hoverInGrey(e) {
-    e.target.removeAttribute('backgroundColor')
+    // e.target.removeEventListener("mouseover", colorHover)
     e.target.style.backgroundColor = "rgb(20, 20, 20)"
     console.log(e.target.style.backgroundColor)
     let opacity = parseFloat(this.style.opacity)
@@ -78,8 +87,10 @@ function hoverInGrey(e) {
 
 }
 
+
 //Create button for color hover
 const randomColorBtn = document.createElement("button")
+
 randomColorBtn.classList.add("btn")
 randomColorBtn.textContent = "Random Color"
 btn_container.appendChild(randomColorBtn)
@@ -87,16 +98,21 @@ randomColorBtn.addEventListener("click", colorSquares)
 
 function colorSquares() {
     const boxes = document.querySelectorAll(".box")
+
     boxes.forEach(box => box.addEventListener("mouseover", colorHover))
+    boxes.forEach(box => box.removeEventListener("mouseover", hoverInGrey))
+
 }
 
 //COLOR HOVER FUNCTION
 function colorHover(e) {
-    e.target.removeAttribute('backgroundColor')
+//    e.target.removeEventListener("mouseover", hoverInGrey)
     bgColor = randomColor()
     console.log(bgColor)
     e.target.style.backgroundColor = `${bgColor} `
 }
+
+
 
 //Function to clear previous grid before loading new grid
 function removePrevGrid(parent) {
